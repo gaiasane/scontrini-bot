@@ -12,7 +12,7 @@ from openpyxl.utils import get_column_letter
 import asyncio
 
 # Configurazione Tesseract
-pytesseract.pytesseract.tesseract_cmd = r'C:\Users\Gaia\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+
 
 # Token del bot
 TOKEN = '8537568170:AAEJHhQIBbR9jPErgah47yjJOOiN67Lkdcg'
@@ -352,21 +352,7 @@ def processa_spese_ricorrenti():
 
 def estrai_importo_da_immagine(image_path):
     """Estrae l'importo da un'immagine usando OCR"""
-    try:
-        img = Image.open(image_path)
-        text = pytesseract.image_to_string(img, lang='ita+eng')
-        
-        # Cerca pattern di importo (es: 12,50 o 12.50 o EUR 12,50)
-        importi = re.findall(r'(\d+[.,]\d{2})', text)
-        
-        if importi:
-            # Prendi l'ultimo importo trovato (di solito è il totale)
-            importo_str = importi[-1].replace(',', '.')
-            return float(importo_str)
-        return None
-    except Exception as e:
-        print(f"Errore OCR: {e}")
-        return None
+    return None
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Comando /start"""
