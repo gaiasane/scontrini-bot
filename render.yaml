@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: scontrini-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+```
+
+Salva e chiudi.
+
+Poi dobbiamo aggiornare il repository GitHub:
+```
+git add render.yaml
+git commit -m "Aggiungi config Render"
+git push
