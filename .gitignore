@@ -1,0 +1,5 @@
+*.xlsx
+*.json
+scontrini/
+__pycache__/
+*.pyc
